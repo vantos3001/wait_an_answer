@@ -34,6 +34,8 @@ namespace Game
             
             var work = new CharacteristicData(CharacteristicState.Work, DEFAULT_STAT_VALUE);
             _characteristics.Add(work);
+            
+            UpdateCharacteristicsPanels();
         }
 
         private CharacteristicData FindCharacteristicData(CharacteristicState state){

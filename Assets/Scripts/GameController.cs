@@ -7,15 +7,8 @@ public class GameController : MonoBehaviour
 
     public UIManager _uiManager;
     
-    // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         _uiManager = UIManager.Instance();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }
