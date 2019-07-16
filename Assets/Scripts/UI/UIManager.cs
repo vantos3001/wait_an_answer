@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using UnityEngine.UI;
 
 namespace Game.UI
 {
@@ -30,19 +29,20 @@ namespace Game.UI
             _canvas.CheckEmailButton.onClick.AddListener(characteristicsController.OnCheckEmailButtonClicked);
         }
 
-        public void SetCharacteristicsPanelValue(CharacteristicState state, string value){
+        public void SetCharacteristicsPanelValue(CharacteristicState state, int value){
+            string text = value.ToString();
             switch (state){
                 case CharacteristicState.Eat:
-                    _canvas.SetEatPanelText(value);
+                    _canvas.SetEatPanelText(text);
                     break;
                 case CharacteristicState.Sleep:
-                    _canvas.SetSleepPanelText(value);
+                    _canvas.SetSleepPanelText(text);
                     break;
                 case CharacteristicState.Work:
-                    _canvas.SetWorkPanelText(value);
+                    _canvas.SetWorkPanelText(text);
                     break;
                 case CharacteristicState.Mood:
-                    _canvas.SetMoodPanelText(value);
+                    _canvas.SetMoodPanelText(text);
                     break;
                 default:
                     Debug.LogError("Not found CharacteristicState = " + state);

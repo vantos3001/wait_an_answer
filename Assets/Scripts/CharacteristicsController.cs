@@ -3,7 +3,6 @@
 using System;
 using System.Collections.Generic;
 using Game.UI;
-using UnityEditorInternal;
 using UnityEngine;
 
 namespace Game
@@ -18,7 +17,7 @@ namespace Game
     
     public class CharacteristicsController : MonoBehaviour
     {
-        private const int DEFAULT_STAT_VALUE = 100;
+        private const int DEFAULT_STAT_VALUE = 50;
         
         private readonly List<CharacteristicData> _characteristics = new
             List<CharacteristicData>();
@@ -47,43 +46,75 @@ namespace Game
             throw new Exception("CharacteristicState = " + state + " is not found");
         }
 
-        private void ReduceCharacteristicValue(CharacteristicState state, int value){
-            var data = FindCharacteristicData(state);
-            data.ChangeValue(-value);
-        }
-
-        private void IncreaseCharacteristicValue(CharacteristicState state, int value){
+        private void ChangeCharacteristicValue(CharacteristicState state, int value){
             var data = FindCharacteristicData(state);
             data.ChangeValue(value);
         }
 
         public void OnEatButtonClicked(){
             Debug.Log("EAT");
-            UIManager.Instance().SetCharacteristicsPanelValue(CharacteristicState.Eat, "5");
+            ChangeAllCharacteristicsOnValue(CharacteristicConstants.EATING_DELTA_EAT, CharacteristicConstants.EATING_DELTA_SLEEP,
+                CharacteristicConstants.EATING_DELTA_WORK, CharacteristicConstants.EATING_DELTA_MOOD);
+            
+            UpdateCharacteristicsPanels();
+            
         }
 
         public void OnSleepButtonClicked(){
             Debug.Log("SLEEP");
-            UIManager.Instance().SetCharacteristicsPanelValue(CharacteristicState.Sleep, "10");
+            ChangeAllCharacteristicsOnValue(CharacteristicConstants.SLEEPING_DELTA_EAT, CharacteristicConstants.SLEEPING_DELTA_SLEEP,
+                CharacteristicConstants.SLEEPING_DELTA_WORK, CharacteristicConstants.SLEEPING_DELTA_MOOD);
+            
+            UpdateCharacteristicsPanels();
         }
 
         public void OnWorkButtonClicked(){
             Debug.Log("WORK");
-            UIManager.Instance().SetCharacteristicsPanelValue(CharacteristicState.Work, "15");
+            ChangeAllCharacteristicsOnValue(CharacteristicConstants.WORKING_DELTA_EAT, CharacteristicConstants.WORKING_DELTA_SLEEP,
+                CharacteristicConstants.WORKING_DELTA_WORK, CharacteristicConstants.WORKING_DELTA_MOOD);
+            
+            UpdateCharacteristicsPanels();
         }
 
         public void OnRelaxButtonClicked(){
             Debug.Log("RELAX");
-            UIManager.Instance().SetCharacteristicsPanelValue(CharacteristicState.Mood, "20");
+            ChangeAllCharacteristicsOnValue(CharacteristicConstants.RELAXING_DELTA_EAT, CharacteristicConstants.RELAXING_DELTA_SLEEP,
+                CharacteristicConstants.RELAXING_DELTA_WORK, CharacteristicConstants.RELAXING_DELTA_MOOD);
+            
+            UpdateCharacteristicsPanels();
         }
 
         public void OnCheckEmailButtonClicked(){
-            Debug.Log("CHECK EMAIL");
+        }
+
+        private void ChangeAllCharacteristicsOnValue(int eat, int sleep, int work, int mood){
+            ChangeCharacteristicValue(CharacteristicState.Eat, eat);
+            ChangeCharacteristicValue(CharacteristicState.Sleep, sleep);
+            ChangeCharacteristicValue(CharacteristicState.Work, work);
+            ChangeCharacteristicValue(CharacteristicState.Mood, mood);
+        }
+        
+        private void UpdateCharacteristicsPanels(){
+            var uiManager = UIManager.Instance();
+            var eat = FindCharacteristicData(CharacteristicState.Eat);
+            uiManager.SetCharacteristicsPanelValue(CharacteristicState.Eat, eat.GetValue());
+            
+            var sleep = FindCharacteristicData(CharacteristicState.Sleep);
+            uiManager.SetCharacteristicsPanelValue(CharacteristicState.Sleep, sleep.GetValue());
+            
+            var work = FindCharacteristicData(CharacteristicState.Work);
+            uiManager.SetCharacteristicsPanelValue(CharacteristicState.Work, work.GetValue());
+            
+            var mood = FindCharacteristicData(CharacteristicState.Mood);
+            uiManager.SetCharacteristicsPanelValue(CharacteristicState.Mood, mood.GetValue());
         }
     }
 
     public class CharacteristicData
     {
+        private const int MAX_STAT_VALUE = 100;
+        private const int MIN_STAT_VALUE = 0;
+        
         private int _value;
 
         public CharacteristicState State{ get;}
@@ -93,9 +124,20 @@ namespace Game
             _value = value;
         }
 
+        public int GetValue(){
+            return _value;
+        }
+
         public void ChangeValue(int value){
-            //TODO: do not decrease below zero and do not increase above max value
             _value += value;
+
+            if (_value > MAX_STAT_VALUE){
+                _value = MAX_STAT_VALUE;
+            }
+
+            if (_value < MIN_STAT_VALUE){
+                _value = MIN_STAT_VALUE;
+            }
         }
     }
 }
