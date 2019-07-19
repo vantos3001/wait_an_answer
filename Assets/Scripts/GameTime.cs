@@ -43,7 +43,7 @@ namespace Game
         }
 
         public static string ClockToString(){
-            var clockText = _hour + ":" + _minute;
+            var clockText = _hour.ToString("00") + ":" + _minute.ToString("00");
             return clockText;
         }
     }
