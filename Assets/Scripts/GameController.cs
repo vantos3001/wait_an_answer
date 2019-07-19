@@ -1,14 +1,14 @@
-﻿using Game.UI;
+﻿using Game;
+using Game.UI;
 using UnityEngine;
 
 public class GameController : MonoBehaviour
 {
     public Player Player;
-
-    public UIManager _uiManager;
+    public GameTime _GameTime;
     
     void Awake()
     {
-        _uiManager = UIManager.Instance();
+        _GameTime = new GameTime();
     }
 }

@@ -27,8 +27,14 @@ namespace Game.UI
             _canvas.WorkButton.onClick.AddListener(characteristicsController.OnWorkButtonClicked);
             _canvas.RelaxButton.onClick.AddListener(characteristicsController.OnRelaxButtonClicked);
             _canvas.CheckEmailButton.onClick.AddListener(characteristicsController.OnCheckEmailButtonClicked);
-        }
 
+            var time = _gameController._GameTime;
+            var clock = _canvas.Clock;
+            
+            clock.UpdateTime(time.ClockToString());
+            time.OnTimeChanged += clock.UpdateTime;
+        }
+        
         public void SetCharacteristicsPanelValue(CharacteristicState state, int value){
             string text = value.ToString();
             switch (state){
@@ -49,7 +55,6 @@ namespace Game.UI
                     break;
             }
         }
-
     } 
 }
 

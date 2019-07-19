@@ -360,6 +360,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 037e2c7f28e1b084c80abc17adbb8b32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &4590337584231687729 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7471054370402415932, guid: 3bb3238d377badb4d9b13d11eb4c79c5,
+    type: 3}
+  m_PrefabInstance: {fileID: 8207773275093280723}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4cb668dbfefc9d4ba48a2747858402d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &8207773275093280723
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -476,6 +488,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4102938107024565573, guid: 3bb3238d377badb4d9b13d11eb4c79c5,
+        type: 3}
+      propertyPath: _clock
+      value: 
+      objectReference: {fileID: 4590337584231687729}
+    - target: {fileID: 4102938107024565573, guid: 3bb3238d377badb4d9b13d11eb4c79c5,
+        type: 3}
+      propertyPath: Clock
+      value: 
+      objectReference: {fileID: 4590337584231687729}
+    - target: {fileID: 6407997265533795555, guid: 3bb3238d377badb4d9b13d11eb4c79c5,
+        type: 3}
+      propertyPath: m_Name
+      value: UIClock
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3bb3238d377badb4d9b13d11eb4c79c5, type: 3}
