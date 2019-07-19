@@ -24,7 +24,7 @@ namespace Game
             _minute = minute;
         }
 
-        public static void ChangeTime(int hour, int minute){
+        public static void AddTime(int hour, int minute){
             _minute += minute;
             var extraHour = _minute / MINUTES_PER_HOUR;
             if (extraHour > 0){

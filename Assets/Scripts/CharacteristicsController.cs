@@ -58,6 +58,8 @@ namespace Game
             ChangeAllCharacteristicsOnValue(CharacteristicConstants.EATING_DELTA_EAT, CharacteristicConstants.EATING_DELTA_SLEEP,
                 CharacteristicConstants.EATING_DELTA_WORK, CharacteristicConstants.EATING_DELTA_MOOD);
             
+            GameTime.AddTime(CharacteristicConstants.EATING_TIME_IN_HOURS, 0);
+            
             UpdateCharacteristicsPanels();
             
         }
@@ -67,6 +69,8 @@ namespace Game
             ChangeAllCharacteristicsOnValue(CharacteristicConstants.SLEEPING_DELTA_EAT, CharacteristicConstants.SLEEPING_DELTA_SLEEP,
                 CharacteristicConstants.SLEEPING_DELTA_WORK, CharacteristicConstants.SLEEPING_DELTA_MOOD);
             
+            GameTime.AddTime(CharacteristicConstants.SLEEPING_TIME_IN_HOURS, 0);
+            
             UpdateCharacteristicsPanels();
         }
 
@@ -74,6 +78,8 @@ namespace Game
             Debug.Log("WORK");
             ChangeAllCharacteristicsOnValue(CharacteristicConstants.WORKING_DELTA_EAT, CharacteristicConstants.WORKING_DELTA_SLEEP,
                 CharacteristicConstants.WORKING_DELTA_WORK, CharacteristicConstants.WORKING_DELTA_MOOD);
+
+            GameTime.AddTime(CharacteristicConstants.WORKING_TIME_IN_HOURS, 0);
             
             UpdateCharacteristicsPanels();
         }
@@ -82,6 +88,8 @@ namespace Game
             Debug.Log("RELAX");
             ChangeAllCharacteristicsOnValue(CharacteristicConstants.RELAXING_DELTA_EAT, CharacteristicConstants.RELAXING_DELTA_SLEEP,
                 CharacteristicConstants.RELAXING_DELTA_WORK, CharacteristicConstants.RELAXING_DELTA_MOOD);
+            
+            GameTime.AddTime(CharacteristicConstants.RELAXING_TIME_IN_HOURS, 0);
             
             UpdateCharacteristicsPanels();
         }
