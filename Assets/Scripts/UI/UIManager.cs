@@ -28,11 +28,10 @@ namespace Game.UI
             _canvas.RelaxButton.onClick.AddListener(characteristicsController.OnRelaxButtonClicked);
             _canvas.CheckEmailButton.onClick.AddListener(characteristicsController.OnCheckEmailButtonClicked);
 
-            var time = _gameController._GameTime;
             var clock = _canvas.Clock;
             
-            clock.UpdateTime(time.ClockToString());
-            time.OnTimeChanged += clock.UpdateTime;
+            clock.UpdateTime(GameTime.ClockToString());
+            GameTime.OnTimeChanged += clock.UpdateTime;
         }
         
         public void SetCharacteristicsPanelValue(CharacteristicState state, int value){

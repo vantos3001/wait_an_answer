@@ -1,26 +1,30 @@
 using System;
+using UnityEngine;
 
 namespace Game
 {
-    public class GameTime
+    public static class GameTime
     {
         private const int HOURS_PER_DAY = 24;
         private const int MINUTES_PER_HOUR = 60;
         
-        private int _day = 0;
-        private int _hour = 0;
-        private int _minute = 0;
+        private static int _day = -1;
+        private static int _hour = -1;
+        private static int _minute = -1;
 
-        public Action<string> OnTimeChanged;
+        public static Action<string> OnTimeChanged;
 
-
-        public GameTime(int day = 0, int hour = 0, int minute = 0){
+        public static void InitTime(int day = 0, int hour = 0, int minute = 0){
+            if ( 0 <= _day|| 0 <= _hour || 0 <= _minute){
+                Debug.LogError("GameTime init the second time");
+            }
+            
             _day = day;
             _hour = hour;
             _minute = minute;
         }
 
-        public void ChangeTime(int hour, int minute){
+        public static void ChangeTime(int hour, int minute){
             _minute += minute;
             var extraHour = _minute / MINUTES_PER_HOUR;
             if (extraHour > 0){
@@ -38,7 +42,7 @@ namespace Game
             OnTimeChanged?.Invoke(ClockToString());
         }
 
-        public string ClockToString(){
+        public static string ClockToString(){
             var clockText = _hour + ":" + _minute;
             return clockText;
         }
