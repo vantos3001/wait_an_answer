@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dialogue>
+	<node>
+		<text>Привет, новичок</text>
+	</node>
+	<node>
+		<text>Хочу есть</text>
+	</node>
+	<node>
+		<text>Есть небольшие переживания по поводу аниме</text>
+	</node>
+</dialogue>

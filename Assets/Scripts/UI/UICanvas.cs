@@ -24,6 +24,8 @@ namespace Game.UI
         [SerializeField] private Panel _sleepPanel;
         [SerializeField] private Panel _workPanel;
         [SerializeField] private Panel _moodPanel;
+
+        [SerializeField] private UIDialoguePanel _dialoguePanel;
     
         private GameController _gameController;
 
