@@ -499,10 +499,90 @@ PrefabInstance:
       propertyPath: Clock
       value: 
       objectReference: {fileID: 4590337584231687729}
+    - target: {fileID: 3529856293528453715, guid: 3bb3238d377badb4d9b13d11eb4c79c5,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 168.98
+      objectReference: {fileID: 0}
+    - target: {fileID: 3529856293528453715, guid: 3bb3238d377badb4d9b13d11eb4c79c5,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 127222217918273372, guid: 3bb3238d377badb4d9b13d11eb4c79c5,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -182.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 127222217918273372, guid: 3bb3238d377badb4d9b13d11eb4c79c5,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 167.99
+      objectReference: {fileID: 0}
+    - target: {fileID: 127222217918273372, guid: 3bb3238d377badb4d9b13d11eb4c79c5,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 185.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 127222217918273372, guid: 3bb3238d377badb4d9b13d11eb4c79c5,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 42.725
+      objectReference: {fileID: 0}
+    - target: {fileID: 127222217723743957, guid: 3bb3238d377badb4d9b13d11eb4c79c5,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 47.342
+      objectReference: {fileID: 0}
+    - target: {fileID: 127222217723743957, guid: 3bb3238d377badb4d9b13d11eb4c79c5,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 195.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 127222217723743957, guid: 3bb3238d377badb4d9b13d11eb4c79c5,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 160.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 127222217723743957, guid: 3bb3238d377badb4d9b13d11eb4c79c5,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 167.66
+      objectReference: {fileID: 0}
+    - target: {fileID: 9134905774943208263, guid: 3bb3238d377badb4d9b13d11eb4c79c5,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9134905774943208263, guid: 3bb3238d377badb4d9b13d11eb4c79c5,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6407997265533795555, guid: 3bb3238d377badb4d9b13d11eb4c79c5,
         type: 3}
       propertyPath: m_Name
       value: UIClock
+      objectReference: {fileID: 0}
+    - target: {fileID: 8506907892055389184, guid: 3bb3238d377badb4d9b13d11eb4c79c5,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -106
+      objectReference: {fileID: 0}
+    - target: {fileID: 8506907892055389184, guid: 3bb3238d377badb4d9b13d11eb4c79c5,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 222.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8506907892055389184, guid: 3bb3238d377badb4d9b13d11eb4c79c5,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 167.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8506907892055389184, guid: 3bb3238d377badb4d9b13d11eb4c79c5,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 68
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3bb3238d377badb4d9b13d11eb4c79c5, type: 3}
