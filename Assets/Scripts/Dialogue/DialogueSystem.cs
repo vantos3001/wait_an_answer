@@ -1,35 +1,43 @@
-using System;
 using Game.Tools;
 using UnityEngine;
 
 namespace Game.Dialogue
 {
-    public static class DialogueSystem
+    public class DialogueSystem
     {
-        private static TextAsset _asset;
+        private const string TEXT_ASSET_PATH = "Texts/basic_phrases";
+        
+        private TextAsset _asset;
 
-        private static int _currentPhrase = 0;
+        private int _currentPhrase = 0;
 
-        private static DialogueSettings _dialogueSettings;
+        private DialogueSettings _dialogueSettings;
 
-        public static Action<string> DialogueTextChanged;
-
-        public static void Load(){
-            _asset = Resources.Load<TextAsset>("Texts/basic_phrases");
+        public void Load(){
+            _asset = Resources.Load<TextAsset>(TEXT_ASSET_PATH);
             _dialogueSettings = DialogueSettings.Load(_asset);
         }
 
-        public static void StartDialogue(){
+        public void StartDialogue(){
             _currentPhrase = 0;
-            DialogueTextChanged?.Invoke(_dialogueSettings.Nodes[_currentPhrase].text);
         }
 
-        public static void Next(){
+        public void Next(){
             _currentPhrase++;
-            var nodeLength = _dialogueSettings.Nodes.Length;
-            if (_currentPhrase < nodeLength){
-                DialogueTextChanged?.Invoke(_dialogueSettings.Nodes[_currentPhrase].text);
+            var nodeLength = DialogueTextLength();
+            
+            if ( nodeLength <= _currentPhrase){
+                _currentPhrase = nodeLength - 1;
+                Debug.LogWarning("Dialogue text ended");
             }
+        }
+
+        private int DialogueTextLength(){
+            return _dialogueSettings.Nodes.Length;
+        }
+
+        public string GetCurrentDialogueText(){
+            return _dialogueSettings.Nodes[_currentPhrase].text;
         }
     }
 }

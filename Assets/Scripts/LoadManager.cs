@@ -7,11 +7,10 @@ namespace Game
     {
         private static LoadManager _manager;
 
-
         public Action LoadFinished;
 
         public void Load(){
-            DialogueSystem.Load();
+            DialogueManager.Instance().Load();
 
             LoadFinished?.Invoke();
         }

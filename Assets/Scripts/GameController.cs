@@ -15,6 +15,6 @@ public class GameController : MonoBehaviour
     }
 
     private void OnLoadFinished(){
-        DialogueSystem.StartDialogue();
+        DialogueManager.Instance().StartDialogue();
     }
 }

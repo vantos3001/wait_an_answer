@@ -15,8 +15,9 @@ namespace Game.UI
     
         // Start is called before the first frame update
         void Awake(){
-            DialogueSystem.DialogueTextChanged += _textPanel.SetText;
-            _nextButton.onClick.AddListener(DialogueSystem.Next);
+            var dialogueManager = DialogueManager.Instance();
+            dialogueManager.DialogueTextChanged += _textPanel.SetText;
+            _nextButton.onClick.AddListener(dialogueManager.NextDialoguePhrase);
         }
 
         // Update is called once per frame
