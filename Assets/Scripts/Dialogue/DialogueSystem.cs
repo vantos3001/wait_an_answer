@@ -10,6 +10,9 @@ namespace Game.Dialogue
         private TextAsset _asset;
 
         private int _currentPhrase = 0;
+        private DialogueNode _currentDialogueNode;
+
+        public DialogueNode CurrentDialogueNode => _currentDialogueNode;
 
         private DialogueSettings _dialogueSettings;
 
@@ -20,6 +23,9 @@ namespace Game.Dialogue
 
         public void StartDialogue(){
             _currentPhrase = 0;
+            
+            var currentNode = _dialogueSettings.Nodes[_currentPhrase];
+            _currentDialogueNode = new DialogueNode(currentNode);
         }
 
         public void Next(){
@@ -30,14 +36,39 @@ namespace Game.Dialogue
                 _currentPhrase = nodeLength - 1;
                 Debug.LogWarning("Dialogue text ended");
             }
+
+            var currentNode = _dialogueSettings.Nodes[_currentPhrase];
+            _currentDialogueNode = new DialogueNode(currentNode);
         }
 
         private int DialogueTextLength(){
             return _dialogueSettings.Nodes.Length;
         }
+    }
+    
+    public class DialogueNode
+    {
+        
+        private Node _node;
 
-        public string GetCurrentDialogueText(){
-            return _dialogueSettings.Nodes[_currentPhrase].text;
+        public DialogueNode(Node node){
+            _node = node;
+        }
+
+        public bool IsHasAnswers(){
+            return _node.answers != null;
+        }
+
+        public string GetDialogueText(){
+            return _node.text;
+        }
+
+        public int AnswerCount(){
+            return _node.answers.Length;
+        }
+
+        public string GetAnswerTextById(int answerId){
+            return _node.answers[answerId].text;
         }
     }
 }

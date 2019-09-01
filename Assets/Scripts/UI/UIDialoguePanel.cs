@@ -10,20 +10,39 @@ namespace Game.UI
         [SerializeField] private Panel _textPanel;
         [SerializeField] private Image _backgroind;
         
-        [SerializeField] private List<Button> _answerButtons;
+        [SerializeField] private List<UIAnswerButton> _answerButtons;
         [SerializeField] private Button _nextButton;
     
         // Start is called before the first frame update
         void Awake(){
             var dialogueManager = DialogueManager.Instance();
-            dialogueManager.DialogueTextChanged += _textPanel.SetText;
+            dialogueManager.DialoguePhraseChanged += UpdatePanel;
             _nextButton.onClick.AddListener(dialogueManager.NextDialoguePhrase);
         }
 
-        // Update is called once per frame
-        void Update()
-        {
-        
+        private void UpdatePanel(DialogueNode dialogueNode){
+            _textPanel.SetText(dialogueNode.GetDialogueText());
+            
+            UpdateButtons(dialogueNode);
+        }
+
+        private void UpdateButtons(DialogueNode dialogueNode){
+            if (dialogueNode.IsHasAnswers()){
+                _nextButton.gameObject.SetActive(false);
+                
+                var answerCount = dialogueNode.AnswerCount();
+                for (int i = 0; i < answerCount; i++){
+                    var currentAnswerButton = _answerButtons[answerCount];
+                    currentAnswerButton.SetActive(true);
+                    currentAnswerButton.SetText(dialogueNode.GetAnswerTextById(i));
+                }
+            }
+            else{
+                _nextButton.gameObject.SetActive(true);
+                foreach (var answerButton in _answerButtons){
+                    answerButton.SetActive(false);
+                }
+            }
         }
     }
 }

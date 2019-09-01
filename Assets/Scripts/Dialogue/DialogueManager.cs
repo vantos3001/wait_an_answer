@@ -7,7 +7,7 @@ namespace Game.Dialogue
         private static DialogueManager _manager;
         private DialogueSystem _dialogueSystem;
         
-        public Action<string> DialogueTextChanged;
+        public Action<DialogueNode> DialoguePhraseChanged;
 
         
         private DialogueManager(){
@@ -17,18 +17,18 @@ namespace Game.Dialogue
         public void StartDialogue(){
             _dialogueSystem.StartDialogue();
 
-            NotifyDialogueTextChanged();
+            NotifyDialoguePhraseChanged();
         }
 
         public void NextDialoguePhrase(){
             _dialogueSystem.Next();
             
-            NotifyDialogueTextChanged();
+            NotifyDialoguePhraseChanged();
         }
 
-        private void NotifyDialogueTextChanged(){
-            var currentDialogueText = _dialogueSystem.GetCurrentDialogueText();
-            DialogueTextChanged?.Invoke(currentDialogueText);
+        private void NotifyDialoguePhraseChanged(){
+            var currentDialogueNode = _dialogueSystem.CurrentDialogueNode;
+            DialoguePhraseChanged?.Invoke(currentDialogueNode);
         }
         
         public void Load(){

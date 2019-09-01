@@ -1,9 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System;
 using System.IO;
 using System.Xml.Serialization;
 using UnityEngine;
-
 
 namespace Game.Tools
 {
@@ -20,9 +18,21 @@ namespace Game.Tools
         }
     }
 
-    [System.Serializable]
+    [Serializable]
     public class Node
     {
+        [XmlAttribute("text")] public string text;
+
+        [XmlArray("answers")] 
+        [XmlArrayItem("answer")]
+        public Answer[] answers;
+    }
+
+    [Serializable]
+    public class Answer
+    {
+        [XmlAttribute("id")] public int id;
+
         [XmlAttribute("text")] public string text;
     }
 }
