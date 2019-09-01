@@ -23,7 +23,7 @@ namespace Game.Tools
     [System.Serializable]
     public class Node
     {
-        [XmlElement("text")] public string text;
+        [XmlAttribute("text")] public string text;
     }
 }
 

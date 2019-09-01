@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dialogue>
-	<node>
-		<text>Привет, новичок</text>
+	<node text="Привет, новичок">
 	</node>
-	<node>
-		<text>Хочу есть</text>
+	<node text="Хочу есть">
 	</node>
-	<node>
-		<text>Есть небольшие переживания по поводу аниме</text>
+	<node text="Есть небольшие переживания по поводу аниме">
 	</node>
 </dialogue>
