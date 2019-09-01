@@ -32,7 +32,7 @@ namespace Game.UI
                 
                 var answerCount = dialogueNode.AnswerCount();
                 for (int i = 0; i < answerCount; i++){
-                    var currentAnswerButton = _answerButtons[answerCount];
+                    var currentAnswerButton = _answerButtons[i];
                     currentAnswerButton.SetActive(true);
                     currentAnswerButton.SetText(dialogueNode.GetAnswerTextById(i));
                 }
