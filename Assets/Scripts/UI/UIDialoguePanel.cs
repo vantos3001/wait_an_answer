@@ -18,6 +18,11 @@ namespace Game.UI
             var dialogueManager = DialogueManager.Instance();
             dialogueManager.DialoguePhraseChanged += UpdatePanel;
             _nextButton.onClick.AddListener(dialogueManager.NextDialoguePhrase);
+
+            for (int i = 0; i < _answerButtons.Count; i++){
+                _answerButtons[i].SetAnswerId(i);
+                _answerButtons[i].OnButtonClicked += OnAnswerButtonClicked;
+            }
         }
 
         private void UpdatePanel(DialogueNode dialogueNode){
@@ -43,6 +48,12 @@ namespace Game.UI
                     answerButton.SetActive(false);
                 }
             }
+        }
+
+        private void OnAnswerButtonClicked(int answerId){
+            //TODO: pass answer id to the correct place
+            
+            DialogueManager.Instance().NextDialoguePhrase();
         }
     }
 }
